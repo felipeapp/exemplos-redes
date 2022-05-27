@@ -19,11 +19,11 @@ if 0 <= n1 <= 10:
                     if faltas > 20:
                         print("Reprovado por faltas!")
                     else:
-                        if 9 <= media <= 10:
+                        if media >= 9:
                             print("Aprovado com louvor!")
-                        elif 7 <= media < 9:
+                        elif media >= 7:
                             print("Aprovado!")
-                        elif 3 <= media < 7:
+                        elif media >= 3:
                             print("Recuperação!")
                         else:
                             print("Reprovado por média!")
