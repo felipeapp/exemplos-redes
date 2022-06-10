@@ -1,13 +1,14 @@
-valor_casa = float(input("Digite o valor da casa: "))
-valor_salario = float(input("Digite o valor do salário: "))
-quantidade_anos = int(input("Digite a quantidade de anos para pagar: "))
+casa = float(input("Digite o valor da casa: "))
+salario = float(input("Digite o valor do salário: "))
+anos = int(input("Digite a quantidade de anos: "))
 
-quantidade_meses = quantidade_anos * 12
-valor_parcela = valor_casa / quantidade_meses
+meses = anos * 12
+prestacao = casa / meses
+limite = 0.3 * salario
 
-print(f"A parcela para {quantidade_meses} meses será R$ {valor_parcela:.2f}!")
+print(f"O limite de 30% do salário é R$ {limite:.2f}!")
 
-if valor_parcela <= valor_salario * 0.3:
-    print("Empréstimo aprovado!")
+if prestacao <= limite:
+    print(f"Empréstimo aprovado para R$ {prestacao:.2f} em {meses} meses!")
 else:
-    print("Empréstimo negado!")
+    print(f"Empréstimo negado para R$ {prestacao:.2f} em {meses} meses!")
