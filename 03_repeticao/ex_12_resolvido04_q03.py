@@ -42,7 +42,7 @@ print(f"Porcentagem de votos brancos: {porcentagem_brancos:.2f}%.")
 
 if joao > severina:
     print("O vencedor foi João Rodrigues!")
-elif joao < severina:
+elif severina > joao:
     print("A vencedora foi Severina!")
 else:
     print("Empate entre João Rodrigues e Severina da Luz!")
