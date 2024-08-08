@@ -32,13 +32,13 @@ print(notas.get("Gustavo", 0))
 print(notas.get("Felipe", 0))
 
 # Retornar um conjunto a partir das chaves
-print(notas.keys())
+print("Keys:", notas.keys())
 
 # Retornar uma lista a partir dos valores
-print(notas.values())
+print("Values:", notas.values())
 
 # Retornar uma lista de itens chave/valor
-print(notas.items())
+print("Itens:", notas.items())
 
 # Usando for nas chaves do dicionário
 for chave in notas:
