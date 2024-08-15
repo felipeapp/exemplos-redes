@@ -12,7 +12,7 @@ def media_aritmetica(v1: float, v2: float, v3: float, v4: float) -> float:
     return (v1 + v2 + v3 + v4) / 4
 
 
-def mostrar_situacao(m: float):
+def mostrar_situacao(m: float) -> None:
     if m >= 6:
         print("O aluno está aprovado!")
     elif m < 2:
