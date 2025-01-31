@@ -14,7 +14,7 @@ def criar_tabela_produto():
                 id integer primary key not null,
                 nome text check(length(nome) between 2 and 50) unique not null,
                 preco real check(preco > 0) not null,
-                quantidade integer check(quantidade > 0) not null,
+                quantidade integer check(quantidade >= 0) not null,
                 medida text check(medida in ('ML', 'L', 'KG', 'G', 'UNIDADE')) not null,
                 cadastro timestamp not null default (datetime('now', 'localtime'))
             )
