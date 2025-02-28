@@ -1,11 +1,13 @@
-from flask import Flask, Response, make_response, request
+from flask import Flask, request
 
 app = Flask("Serviço de Dicionário Web")
+
 dicionario = {}
+TipoResposta = tuple[dict[str, str | dict[str, str]], int]
 
 
-def criar_resposta(mensagem: str | dict[str, str], codigo: int) -> Response:
-    return make_response({"resposta": mensagem}, codigo)
+def criar_resposta(mensagem: str | dict[str, str], codigo: int) -> TipoResposta:
+    return {"resposta": mensagem}, codigo
 
 
 @app.route("/palavras", methods=["GET"])
@@ -14,7 +16,7 @@ def buscar_todos() -> dict[str, str]:
 
 
 @app.route("/palavras/<string:palavra>", methods=["GET", "DELETE"])
-def buscar_ou_remover(palavra: str) -> Response:
+def buscar_ou_remover(palavra: str) -> TipoResposta:
     if palavra in dicionario:
         resposta = criar_resposta({palavra: dicionario[palavra]}, 200)
 
@@ -27,7 +29,7 @@ def buscar_ou_remover(palavra: str) -> Response:
 
 
 @app.route("/palavras", methods=["POST", "PUT"])
-def adicionar_ou_atualizar() -> Response:
+def adicionar_ou_atualizar() -> TipoResposta:
     if request.is_json and request.json:
         # Neste exemplo usamos o método get de request.json.get("...")
         # Assim, fazemos a validação do retorno com estruturas if-else
@@ -46,4 +48,4 @@ def adicionar_ou_atualizar() -> Response:
     return resposta
 
 
-app.run("localhost", 8080, debug=True)
+app.run("0.0.0.0", 8080, debug=True)
