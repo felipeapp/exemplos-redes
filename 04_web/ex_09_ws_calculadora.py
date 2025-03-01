@@ -62,4 +62,4 @@ def calc_json() -> str | Response:
     return resposta
 
 
-app.run("localhost", 8080, debug=True)
+app.run("0.0.0.0", 8080, debug=True)
