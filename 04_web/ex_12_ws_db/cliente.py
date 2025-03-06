@@ -1,10 +1,25 @@
 from dataclasses import asdict
 
 import requests
-from comum import URL_ALUNOS, Aluno, imprimir
+from comum import API_KEY, URL_ALUNOS, Aluno, imprimir
+from urllib3 import disable_warnings
+from urllib3.exceptions import InsecureRequestWarning
+
+
+def criar_sessao() -> requests.Session:
+    sessao = requests.Session()
+    sessao.headers["API-KEY"] = API_KEY
+
+    # Estas duas linhas são necessárias apenas se usando certificados auto-assinados
+    sessao.verify = False
+    disable_warnings(InsecureRequestWarning)
+
+    return sessao
 
 
 def main() -> None:
+    sessao = criar_sessao()
+
     while True:
         print(50 * "-")
         print("0. Sair do programa")
@@ -23,7 +38,7 @@ def main() -> None:
             matricula = int(input("Digite a matrícula do aluno: "))
             ira = float(input("Digite o IRA do aluno: "))
 
-            with requests.post(URL_ALUNOS, json=asdict(Aluno(nome, matricula, ira))) as resposta:
+            with sessao.post(URL_ALUNOS, json=asdict(Aluno(nome, matricula, ira))) as resposta:
                 if resposta.status_code == 201:
                     print("Aluno adicionado com sucesso!")
                     imprimir(Aluno(**resposta.json()))
@@ -32,7 +47,7 @@ def main() -> None:
                 else:
                     print("Erro desconhecido ao adicionar o aluno", resposta.status_code)
         elif opcao == 2:
-            with requests.get(URL_ALUNOS) as resposta:
+            with sessao.get(URL_ALUNOS) as resposta:
                 if resposta.status_code == 200:
                     for aluno in resposta.json():
                         print("-")
@@ -44,7 +59,7 @@ def main() -> None:
         elif opcao == 3:
             matricula = int(input("Digite a matrícula do aluno: "))
 
-            with requests.get(f"{URL_ALUNOS}/{matricula}") as resposta:
+            with sessao.get(f"{URL_ALUNOS}/{matricula}") as resposta:
                 if resposta.status_code == 200:
                     imprimir(Aluno(**resposta.json()))
                 elif resposta.status_code == 404:
@@ -57,7 +72,7 @@ def main() -> None:
             ira = float(input("Digite o novo IRA do aluno: "))
             id_aluno = int(input("Digite o ID do aluno a ser atualizado: "))
 
-            with requests.put(URL_ALUNOS, json=asdict(Aluno(nome, matricula, ira, id_aluno))) as resposta:
+            with sessao.put(URL_ALUNOS, json=asdict(Aluno(nome, matricula, ira, id_aluno))) as resposta:
                 if resposta.status_code == 204:
                     print("Aluno atualizado com sucesso!")
                 elif resposta.status_code in (400, 404, 409, 415):
@@ -67,7 +82,7 @@ def main() -> None:
         elif opcao == 5:
             matricula = int(input("Digite a matrícula do aluno: "))
 
-            with requests.delete(f"{URL_ALUNOS}/{matricula}") as resposta:
+            with sessao.delete(f"{URL_ALUNOS}/{matricula}") as resposta:
                 if resposta.status_code == 204:
                     print("Aluno removido com sucesso!")
                 elif resposta.status_code == 404:

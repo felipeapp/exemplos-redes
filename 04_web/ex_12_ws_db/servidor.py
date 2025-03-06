@@ -1,10 +1,11 @@
 from dataclasses import asdict
 from datetime import date, datetime
+from secrets import compare_digest
 from typing import Any
 
 import alunodao
-from comum import Aluno
-from flask import Flask, Response, make_response, request
+from comum import API_KEY, Aluno
+from flask import Flask, Response, abort, make_response, request
 from flask.json.provider import DefaultJSONProvider
 
 
@@ -26,6 +27,14 @@ def criar_resposta(dados: Any, codigo: int) -> Response:
 
 def criar_erro(mensagem: str, codigo: int) -> Response:
     return make_response({"erro": mensagem}, codigo)
+
+
+@app.before_request
+def autenticacao() -> None:
+    chave = request.headers.get("API-KEY", "")
+
+    if not compare_digest(chave, API_KEY):
+        abort(criar_erro("Chave de API inválida!", 401))
 
 
 @app.route("/alunos", methods=["POST"])
@@ -86,5 +95,7 @@ def atualizar() -> Response:
     return resposta
 
 
+# Para executar com gunicorn e https use:
+# gunicorn -b 127.0.0.1:4443 servidor:app --certfile certs/flask.crt --keyfile certs/flask.key --access-logfile -
 if __name__ == "__main__":
-    app.run("0.0.0.0", 8080, debug=True)
+    app.run("127.0.0.1", 8080, debug=True, ssl_context=("certs/flask.crt", "certs/flask.key"))

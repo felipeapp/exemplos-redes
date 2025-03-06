@@ -1,7 +1,13 @@
 from dataclasses import dataclass
 from datetime import date, datetime
 
-URL_ALUNOS = "http://127.0.0.1:8080/alunos"
+API_KEY = "M83rZ7XX9GRm81pfTQuBpUbMXDIYO_ls7Ims2acJdLE"
+
+# Use este se rodar nativamente com Flask e http
+# URL_ALUNOS = "http://127.0.0.1:8080/alunos"
+
+# Use este se rodar o servidor com gunicorn e https
+URL_ALUNOS = "https://127.0.0.1:4443/alunos"
 
 
 @dataclass
