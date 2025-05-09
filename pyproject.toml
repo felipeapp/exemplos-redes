@@ -74,7 +74,9 @@ ignore = [
     "INP001",  # File is part of an implicit namespace package. Add an __init__.py
     "PLR0913", # Too many arguments in function definition
     "S311",    # Standard pseudo-random generators are not suitable for cryptographic purposes
-    "UP003",   #Checks for uses of type that take a primitive as an argument
+    "UP003",   # Checks for uses of type that take a primitive as an argument
+    "PLR2004", # Magic value used in comparison
+    "PLR0133", # Two constants compared in a comparison
     "TD",      # flake8-todos
     "FIX",     # flake8-fixme
     "T",       # flake8-print
