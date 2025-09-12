@@ -1,7 +1,7 @@
 [project]
 name = "exemplos-redes"
-version = "20.25.1"
-description = "Exemplos da disciplina Programação de Computadores para o CST em Redes de Computadores"
+version = "2025.2"
+description = "Exemplos da disciplina Programação para Redes do CST em Redes de Computadores"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = []
