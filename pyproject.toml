@@ -3,15 +3,15 @@ name = "exemplos-redes"
 version = "2025.2"
 description = "Exemplos da disciplina Programação para Redes do CST em Redes de Computadores"
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.14,<3.15"
 dependencies = []
 
 [dependency-groups]
 dev = ["ruff"]
 
 [tool.ruff]
-# Assume Python 3.13
-target-version = "py313"
+# Assume Python 3.14
+target-version = "py314"
 
 # Exclude a variety of commonly ignored directories.
 exclude = [
@@ -68,6 +68,7 @@ ignore = [
     "D107",    # Missing docstring in __init__
     "D203",    # 1 blank line required before class docstring
     "D212",    # Multi-line docstring summary should start at the first line
+    "TC003",   # Move standard library import into a type-checking block
     "ANN401",  # Dynamically typed expressions (typing.Any) are disallowed
     "TRY002",  # Create your own exception
     "TRY003",  # Avoid specifying long messages outside the exception class
