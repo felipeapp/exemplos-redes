@@ -4,7 +4,7 @@ version = "2025.2"
 description = "Exemplos da disciplina Programação para Redes do CST em Redes de Computadores"
 readme = "README.md"
 requires-python = ">=3.14,<3.15"
-dependencies = []
+dependencies = ["flask>=3.1.2", "requests>=2.32.5"]
 
 [dependency-groups]
 dev = ["ruff"]
