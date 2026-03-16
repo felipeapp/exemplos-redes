@@ -1,0 +1,17 @@
+.vscode
+.idea
+.venv
+.ruff_cache
+.env
+
+*.zip
+*.log
+*.db
+*.lock
+*.json
+*.csv
+*.json
+*.txt
+
+__pycache__
+venv
