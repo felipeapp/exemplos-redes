@@ -1,10 +1,10 @@
 [project]
 name = "exemplos-redes"
-version = "2025.2"
-description = "Exemplos da disciplina Programação para Redes do CST em Redes de Computadores"
+version = "2026.1"
+description = "Exemplos da disciplina Programação de Computadores do CST em Redes de Computadores"
 readme = "README.md"
 requires-python = ">=3.14,<3.15"
-dependencies = ["flask", "requests"]
+dependencies = []
 
 [dependency-groups]
 dev = ["ruff"]
