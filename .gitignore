@@ -3,6 +3,7 @@
 .venv
 .ruff_cache
 .env
+.DS_Store
 
 *.zip
 *.log
