@@ -8,8 +8,8 @@ class Servidor:
 
 
 srv = Servidor("srv-web")
-print("status inicial:", srv.status)
+print(f"status inicial: {srv.status}")
 
 srv.status = "banana"
-print("status agora  :", srv.status)
-print("esta_ativo()  :", srv.esta_ativo(), "<- False, mas pelo motivo errado")
+print(f"status agora  : {srv.status}")
+print(f"esta_ativo()  : {srv.esta_ativo()} <- False, mas pelo motivo errado")

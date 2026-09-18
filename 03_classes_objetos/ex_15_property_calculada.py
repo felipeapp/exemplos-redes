@@ -9,7 +9,7 @@ class Servidor:
 
 
 srv = Servidor("srv-dns", "10.0.0.12")
-print("srv.etiqueta =", srv.etiqueta)
+print(f"srv.etiqueta = {srv.etiqueta}")
 
 srv.ip = "10.0.0.99"
-print("srv.etiqueta =", srv.etiqueta)
+print(f"srv.etiqueta = {srv.etiqueta}")

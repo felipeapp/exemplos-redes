@@ -19,10 +19,10 @@ class Servidor:
 srv = Servidor("10.0.0.10")
 
 srv.ip = "banana"
-print("ip continua:", srv.ip)
+print(f"ip continua: {srv.ip}")
 
 srv.ip = "42"
-print("ip continua:", srv.ip)
+print(f"ip continua: {srv.ip}")
 
 srv.ip = "10.0.0.99"
-print("ip aceito  :", srv.ip)
+print(f"ip aceito  : {srv.ip}")

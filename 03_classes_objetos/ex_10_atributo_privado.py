@@ -5,4 +5,4 @@ class Servidor:
 
 srv = Servidor("10.0.0.10")
 # print(srv.__ip) # Isso vai gerar erro
-print("srv._Servidor__ip =", srv._Servidor__ip)
+print(f"srv._Servidor__ip = {srv._Servidor__ip}")

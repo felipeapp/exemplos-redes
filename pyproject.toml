@@ -90,6 +90,9 @@ ignore = [
     "PTH",     # flake8-use-pathlib
     "PT",      # flake8-pytest-style
     "ERA",     # eradicate
+    "TC001",   # Move application import {} into a type-checking block
+    "TC002",   # Move third-party import into a type-checking block
+    "TC003",   # Move standard library import into a type-checking block
 ]
 
 # Allow fix for all enabled rules (when `--fix`) is provided.

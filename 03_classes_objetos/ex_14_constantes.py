@@ -28,8 +28,8 @@ class Servidor:
 srv = Servidor("srv-web")
 
 srv.status = "banana"
-print("status continua:", srv.status)
+print(f"status continua: {srv.status}")
 
 srv.status = "  MANUTENCAO "
-print("status aceito e normalizado:", srv.status)
-print("esta_ativo():", srv.esta_ativo())
+print(f"status aceito e normalizado: {srv.status}")
+print(f"esta_ativo(): {srv.esta_ativo()}")

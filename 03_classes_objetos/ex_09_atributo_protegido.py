@@ -4,4 +4,4 @@ class Servidor:
 
 
 srv = Servidor("10.0.0.10")
-print("srv._ip =", srv._ip, "<- funciona: e um aviso, nao uma tranca")
+print(f"srv._ip = {srv._ip} <- funciona: e um aviso, nao uma tranca")

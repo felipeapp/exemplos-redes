@@ -3,5 +3,5 @@ class Servidor:
 
 
 srv = Servidor()
-print("tipo do objeto:", type(srv))
-print("sao objetos diferentes:", Servidor() is not Servidor())
+print(f"tipo do objeto: {type(srv)}")
+print(f"sao objetos diferentes: {Servidor() is not Servidor()}")

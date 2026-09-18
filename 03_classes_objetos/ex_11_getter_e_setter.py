@@ -11,4 +11,4 @@ class Servidor:
 
 srv = Servidor("10.0.0.10")
 srv.set_ip("10.0.0.99")
-print("srv.get_ip() =", srv.get_ip(), "<- funciona, mas e verboso")
+print(f"srv.get_ip() = {srv.get_ip()} <- funciona, mas e verboso")

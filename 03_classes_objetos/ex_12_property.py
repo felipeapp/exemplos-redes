@@ -8,4 +8,4 @@ class Servidor:
 
 
 srv = Servidor("10.0.0.10")
-print("srv.ip =", srv.ip, "<- parece atributo, mas e um metodo")
+print(f"srv.ip = {srv.ip} <- parece atributo, mas e um metodo")
